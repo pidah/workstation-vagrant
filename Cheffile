@@ -6,5 +6,3 @@ site 'http://community.opscode.com/api/v1'
 cookbook "apt"
 cookbook "git"
 cookbook "vim"
-cookbook "ssh_known_hosts"
-
