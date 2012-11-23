@@ -1,4 +1,3 @@
-#
 # Cookbook Name:: vimrc
 # Recipe:: default
 #
@@ -16,20 +15,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include_recipe "git"
+include_recipe "vim"
 
 git "vimrc" do
   user "vagrant"
   group "vagrant"
-  repository "git@github.com:aespinosa/dotvim.git"
+  repository "http://github.com/aespinosa/dotvim.git"
   destination "/home/vagrant/.vim"
+  enable_submodules true
   action :sync
-end
-
-execute "vim-update-bundles" do
-  user "vagrant"
-  group "vagrant"
-  creates "/home/vagrant/.vim/doc/bundle-log.txt"
-  command "vim-update-bundles --vimrc-path=/home/vagrant/.vim/vimrc --vimdir-path=/home/vagrant/.vim"
 end
 
 file "/home/vagrant/.vimrc" do
