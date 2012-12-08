@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant::Config.run do |config|
-  config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box = "opscode-ubuntu-12.04"
+  config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box"
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
