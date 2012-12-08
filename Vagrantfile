@@ -9,5 +9,6 @@ Vagrant::Config.run do |config|
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.add_recipe "dircolors"
     chef.add_recipe "vimrc"
+    chef.add_recipe "screen::source"
   end
 end
