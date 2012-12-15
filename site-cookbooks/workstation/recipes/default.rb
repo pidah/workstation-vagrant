@@ -1,7 +1,10 @@
-# Cookbook Name:: vimrc
+#
+# Cookbook Name:: workstation
 # Recipe:: default
 #
-# Copyright 2012, Allan Espinosa <allan.espinosa@outlook.com>
+# Author:: Allan Espinosa <allan.espinosa@outlook.com>
+#
+# Copyright 2012, Allan Espinosa
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,6 +18,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 include_recipe "git"
 include_recipe "vim"
 
@@ -35,4 +39,11 @@ set bg:dark
 set t_Co=256
 source ~/.vim/vimrc
   eos
+end
+
+remote_file "/home/vagrant/.dircolors" do
+  user "vagrant"
+  group "vagrant"
+  source "https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark"
+  action :create
 end
