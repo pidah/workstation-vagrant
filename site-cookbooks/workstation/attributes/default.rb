@@ -19,5 +19,10 @@
 # limitations under the License.
 #
 
-default["workstation"]["user"] = node["current_user"]
+if node["vagrant"] then
+  default["workstation"]["user"] = node["vagrant"]["config"]["keys"]["ssh"]["username"]
+else
+  default["workstation"]["user"] = node["current_user"]
+end
+
 default["workstation"]["home_directory"] = node["etc"]["passwd"][node["workstation"]["user"]]["dir"]
