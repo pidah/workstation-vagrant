@@ -19,21 +19,26 @@
 # limitations under the License.
 #
 
-include_recipe "git"
-include_recipe "vim"
+if ENV["USER"] == "root" then
+  include_recipe "git"
+  include_recipe "vim"
+end
 
-git "vimrc" do
-  user "vagrant"
-  group "vagrant"
+current_user = node["workstation"]["user"]
+home_dir = node["workstation"]["home_directory"]
+
+git ".vim" do
+  user current_user
+  group current_user
   repository "http://github.com/aespinosa/dotvim.git"
-  destination "/home/vagrant/.vim"
+  destination File.join(home_dir, ".vim")
   enable_submodules true
   action :sync
 end
 
-file "/home/vagrant/.vimrc" do
-  user "vagrant"
-  group "vagrant"
+file File.join(home_dir, ".vimrc") do
+  user current_user
+  group current_user
   content <<-eos
 set bg:dark
 set t_Co=256
@@ -41,9 +46,9 @@ source ~/.vim/vimrc
   eos
 end
 
-remote_file "/home/vagrant/.dircolors" do
-  user "vagrant"
-  group "vagrant"
+remote_file File.join(home_dir, ".dircolors") do
+  user current_user
+  group current_user
   source "https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark"
   action :create
 end
