@@ -58,3 +58,7 @@ remote_file File.join(home_dir, ".screenrc") do
   group current_user
   source "https://gist.github.com/raw/4110273/b8ee5e62b04136177bb50725455b3f3c9bd1af7c/.screenrc"
 end
+
+execute "vim as default editor" do
+  command "update-alternatives --set editor /usr/bin/vim.basic"
+end
