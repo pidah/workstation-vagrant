@@ -15,6 +15,8 @@ Attributes
      provision"
    * node[workstation][home_directory] - directory where dotfiles will be
      installed.  Defaults to the node[workstation][user]'s home directory
+   * node[workstation][name] - name for logging into git commits
+   * node[workstation][email] - email for logging into git commits
 
 Usage
 =====
