@@ -4,7 +4,7 @@
 #
 # Author:: Allan Espinosa <allan.espinosa@outlook.com>
 #
-# Copyright 2012, Allan Espinosa
+# Copyright 2012-2013, Allan Espinosa
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,3 +26,6 @@ else
 end
 
 default["workstation"]["home_directory"] = node["etc"]["passwd"][node["workstation"]["user"]]["dir"]
+
+default["workstation"]["name"] = "Allan Espinosa"
+default["workstation"]["email"] = "allan.espinosa@outlook.com"
