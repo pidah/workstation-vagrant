@@ -4,7 +4,7 @@
 #
 # Author:: Allan Espinosa <allan.espinosa@outlook.com>
 #
-# Copyright 2012, Allan Espinosa
+# Copyright 2012-2013, Allan Espinosa
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -51,4 +51,10 @@ remote_file File.join(home_dir, ".dircolors") do
   group current_user
   source "https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark"
   action :create
+end
+
+remote_file File.join(home_dir, ".screenrc") do
+  user current_user
+  group current_user
+  source "https://gist.github.com/raw/4110273/b8ee5e62b04136177bb50725455b3f3c9bd1af7c/.screenrc"
 end
